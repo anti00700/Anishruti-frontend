@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const Account = ({ user }) => {
   const { setIsAuth, setUser } = UserData();
-
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -18,53 +17,32 @@ const Account = ({ user }) => {
     toast.success("Logged Out");
     navigate("/login");
   };
+
   return (
-    <div>
-      {user && (
-        <div className="profile">
-          <h2>My Profile</h2>
-          <div className="profile-info">
-            <p>
-              <strong>Name - {user.name}</strong>
-            </p>
-
-            <p>
-              <strong>Email - {user.email}</strong>
-            </p>
-
-            <button
-              onClick={() => navigate(`/${user._id}/dashboard`)}
-              className="common-btn"
-            >
+    <div className="account-container">
+      <div className="sidebar">
+        {user && (
+          <>
+            <h3>My Account</h3>
+            <p><strong>Name:</strong> {user.name}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+            <button onClick={() => navigate(`/${user._id}/dashboard`)} className="sidebar-btn">
               <MdDashboard />
               Dashboard
             </button>
-
-            <br />
-
             {user.role === "admin" && (
-              <button
-                onClick={() => navigate(`/admin/dashboard`)}
-                className="common-btn"
-              >
+              <button onClick={() => navigate(`/admin/dashboard`)} className="sidebar-btn">
                 <MdDashboard />
                 Admin Dashboard
               </button>
             )}
-
-            <br />
-
-            <button
-              onClick={logoutHandler}
-              className="common-btn"
-              style={{ background: "red" }}
-            >
+            <button onClick={logoutHandler} className="sidebar-btn logout-btn">
               <IoMdLogOut />
               Logout
             </button>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

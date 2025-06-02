@@ -26,10 +26,9 @@
       background-color: #fff;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Fixed box-shadow syntax */
+      box-shadow: 0px, 2px, 4px, rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 100%;  /* Ensure form takes up full width */
-      z-index: 10; /* Added z-index for visibility */
+      width: auto;
 
       h2 {
         font-size: 24px;
@@ -82,4 +81,14 @@
       color: white;
     }
   }
+}
+
+.progress {
+  width: 20%;
+  background-color: #333;
+  padding: 6px;
+  border-radius: 5px;
+  margin: 3px auto;
+  text-align: center;
+  color: white;
 }

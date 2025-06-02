@@ -27,7 +27,10 @@ const Sidebar = () => {
             <span>Courses</span>
           </Link>
         </li>
- 
+
+
+
+          {user && user.mainrole === "superadmin" && (
           <li>
             <Link to={"/admin/users"}>
               <div className="icon">
@@ -36,6 +39,8 @@ const Sidebar = () => {
               <span>Users</span>
             </Link>
           </li>
+        )}
+
 
         <li>
           <Link to={"/account"}>

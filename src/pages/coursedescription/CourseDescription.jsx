@@ -103,6 +103,7 @@ const CourseDescription = ({ user }) => {
                   <h2>{course.title}</h2>
                   <p>Instructor: {course.createdBy}</p>
                   <p>Duration: {course.duration} weeks</p>
+                  <p>Category: {course.category}</p>
                 </div>
               </div>
 

@@ -1,28 +1,91 @@
-.profile {
-  background-color: white;
+/* Main container layout */
+.account-container {
+  display: flex;
+  min-height: 100vh; /* Ensures the container takes the full height of the viewport */
+  width: 100%;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background-color: #8a4baf;
+  color: white;
+  width: 250px; /* Width suitable for both desktop and mobile */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 30%;
-  margin: 185px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 100vh; /* Ensures the sidebar stretches to the full height of the viewport */
+  position: fixed; /* Keeps the sidebar fixed on the left */
+  left: 0;
+  top: 0;
+  overflow: auto; /* Allows scrolling if content overflows */
+}
 
-  @media (max-width: 768px) {
-    padding: 10px;
-    width: 80%;
-    margin: 90px auto;
+/* Sidebar header */
+.sidebar h3 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+/* Sidebar text */
+.sidebar p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Sidebar buttons */
+.sidebar-btn {
+  background-color: #6a2b8a;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  width: 100%; /* Full width for buttons */
+  text-align: left; /* Align text to the left */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Hover effect for buttons */
+.sidebar-btn:hover {
+  background-color: #7e3eaa;
+}
+
+/* Logout button styling */
+.logout-btn {
+  background-color: red;
+  margin-top: 15px; /* Space between logout and other buttons */
+}
+
+/* Main content styling */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px; /* Ensures content is not covered by the sidebar */
+  background-color: #f8f8f8;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full width on small screens */
+    position: relative; /* Not fixed on mobile */
+    height: auto; /* Allow the height to adjust based on content */
+    padding: 15px; /* Adjust padding for smaller screens */
   }
-
-  .profile-info {
-    text-align: left;
-    margin-top: 15px;
-
-    p {
-      margin-bottom: 10px;
-      color: #333;
-
-      strong {
-        color: #8a4baf;
-      }
-    }
+  
+  .content {
+    margin-left: 0; /* Remove left margin on small screens */
+    padding: 15px; /* Ensure padding is consistent */
+  }
+  
+  .sidebar-btn {
+    font-size: 0.9rem; /* Slightly smaller font size for smaller screens */
   }
 }
