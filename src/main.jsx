@@ -4,7 +4,12 @@ import App from "./App.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 import { CourseContextProvider } from "./context/CourseContext.jsx";
 
-export const server = "https://anishruti-server.onrender.com";
+// Use the deployed Render API in production and keep localhost as the local-development fallback.
+export const server =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:4000"
+    : "https://anishruti-server.onrender.com");
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
